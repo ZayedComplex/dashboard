@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block title %}عارض الملف{% endblock %}
+
+{% block content %}
+<div class="viewer-container">
+    <div class="viewer-header">
+        <h2 class="viewer-title">📄 {{ display_title }}</h2>
+    </div>
+
+    <iframe src="{{ url_for('static', filename='pdfs/' ~ filename) }}"
+            width="100%"
+            height="600px"
+            style="border: 1px solid #ccc; border-radius: 6px;"></iframe>
+</div>
+{% endblock %}

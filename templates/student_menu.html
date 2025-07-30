@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% block title %}لوحة تحكم الطالب / ولي الأمر{% endblock %}
+{% block content %}
+<div class="menu-page-container">
+    <h2 class="text-center">🎓 لوحة تحكم الطالب / ولي الأمر</h2>
+</div>
+    <div class="menu-boxes">
+        <div class="box">
+            <h3>📋 جداول مفيدة</h3>
+            <ul>
+                <li><a href="{{ url_for('view_pdf', filename='cycle2.pdf', title='جداول الحلقة الثانية') }}">عرض جداول الحلقة الثانية</a></li>
+                <li><a href="{{ url_for('view_pdf', filename='cycle3.pdf', title = 'جداول الحلقة الثالثة')}}">عرض جداول الحلقة الثالثة</a></li>
+                <li><a href="{{ url_for('view_pdf', filename='timings.pdf', title= 'التوقيت الزمني للحصص') }}">عرض التوقيت الزمني للحصص</a></li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <h3>🔗 روابط مفيدة</h3>
+            <ul>
+               <li><a href="https://www.alefed.com"> منصة ألف </a></li>
+               <li><a href="https://www.https://moe.gov.ae/ar/Pages/home.aspx"> وزارة التربية والتعليم </a></li>
+               <li><a href="https://www.https://lms.ese.gov.ae"> بوابة التعلم الذكي </a></li>
+               <li><a href="https://www.alefed.com"> منصة ألف </a></li>
+	       <li><a href="{{ url_for('report') }}" class="">🎓 التقارير الطلابية</a></li>
+               <li><a href="{{ url_for('view_pdf', filename='numbers.pdf', title= 'أرقام الهيئة الادارية والتعليمية ') }}">أرقام الهيئة الادارية والتعليمية</a></li>
+               <li><a href="{{ url_for('view_pdf', filename='weekly_plan.pdf', title= 'الخطة الأسبوعية') }}">عرض الخطة الأسبوعية</a></li>
+
+           </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

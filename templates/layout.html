@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}لوحة التحكم المدرسية{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- Consistent Header on All Pages -->
+<div class="all-header">
+    <!-- <a href="{{ request.referrer or url_for('main_menu') }}" class="win-back-button">🔙 الرجوع</a> -->
+    <a href="javascript:history.back()" class="win-back-button">🔙 الرجوع</a>
+
+    <a href="#" onclick="exitApp()" class="win-exit-button">🔚 إنهاء</a>
+</div>
+
+<!-- Page Content -->
+<div class="main-content">
+    {% block content %}{% endblock %}
+</div>
+
+<!-- Optional JavaScript for Exit Button -->
+<script>
+function exitApp() {
+    if (window.navigator && window.navigator.app && window.navigator.app.exitApp) {
+        window.navigator.app.exitApp(); // Cordova/Capacitor
+    } else if (window.close) {
+        window.close(); // Desktop WebView
+    } else {
+        alert('يرجى إغلاق التطبيق يدويًا');
+    }
+}
+</script>
+
+</body>
+</html>

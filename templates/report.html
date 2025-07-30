@@ -1,0 +1,97 @@
+{% extends 'layout.html' %}
+
+{% block title %}بطاقة متابعة الطالب{% endblock %}
+
+{% block content %}
+  <style>
+    .report-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .report-header h2 {
+      color: #333;
+      font-size: 24px;
+      margin: 0;
+    }
+
+    form {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    form input[type="text"] {
+      padding: 6px;
+      width: 200px;
+    }
+
+    form button {
+      padding: 6px 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      text-align: center;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #e0e0e0;
+    }
+
+    h3 {
+      text-align: center;
+      margin-top: 30px;
+    }
+  </style>
+
+  <div class="report-header">
+    <h2>📋 بطاقة متابعة الطالب</h2>
+  </div>
+
+  <form method="post">
+    <input type="text" name="student_id" placeholder="أدخل رقم الهوية">
+    <button type="submit">بحث</button>
+  </form>
+
+  {% if error %}
+    <p style="color: red; text-align: center;">{{ error }}</p>
+  {% endif %}
+
+  {% if student %}
+    <h3>الاسم: {{ student['Name'] }} | الصف: {{ student['Class'] }}</h3>
+
+    <table>
+      <tr>
+        <th>المادة</th>
+        <th>الاختبارات التكوينية</th>
+        <th>المستوى الأكاديمي</th>
+        <th>المشاركة</th>
+        <th>ألف</th>
+        <th>السلوك</th>
+        <th>الالتزام</th>
+      </tr>
+      {% for subject in subjects %}
+      <tr>
+        <td>{{ subject.name }}</td>
+        <td>{{ subject.formative }}</td>
+        <td>{{ subject.academic }}</td>
+        <td>{{ subject.participation }}</td>
+        <td>{{ subject.alef }}</td>
+        <td>{{ subject.behavior }}</td>
+        <td>{{ subject.commitment }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  {% endif %}
+{% endblock %}

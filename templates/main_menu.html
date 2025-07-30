@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+{% block title %}لوحة التحكم المدرسية{% endblock %}
+{% block content %}
+<div class="main-menu-container">
+    <h2 class="text-center">👋 مرحباً بك في نظام لوحة التحكم المدرسية</h2>
+    <div class="menu-options">
+        <a href="{{ url_for('student_menu') }}" class="menu-btn">🎓 دخول كطلاب / ولي أمر</a>
+        <a href="{{ url_for('staff_login') }}" class="menu-btn">🧑‍🏫 دخول كموظف</a>
+    </div>
+</div>
+{% endblock %}
